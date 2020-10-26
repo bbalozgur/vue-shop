@@ -9,16 +9,37 @@ export default new Vuex.Store({
   },
   mutations: {
     addToCart(state, product) {
-      const cartProduct = product;
+      const tempCart = { ...state.cart };
+      const tempProduct = product;
       // if we has this product already
       // increase quantity
       if (state.cart[product.id]) {
-        cartProduct.quantity += 1;
+        tempProduct.quantity += 1;
       } else {
-        cartProduct.quantity = 1;
+        tempProduct.quantity = 1;
+      }
+      tempCart[product.id] = tempProduct;
+
+      state.cart = tempCart;
+    },
+    removeFromCart(state, product) {
+      const tempCart = { ...state.cart };
+      const tempProduct = product;
+      // if we has this product already
+      // increase quantity
+      if (product.quantity === 1) {
+        delete tempCart[product.id];
+      } else {
+        tempProduct.quantity -= 1;
+        tempCart[product.id] = tempProduct;
       }
 
-      Vue.set(state.cart, product.id, cartProduct);
+      state.cart = tempCart;
+    },
+    removeProduct(state, product) {
+      const tempCart = { ...state.cart };
+      delete tempCart[product.id];
+      state.cart = tempCart;
     },
   },
   actions: {

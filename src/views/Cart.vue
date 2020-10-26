@@ -8,7 +8,7 @@
         <div class="cart-counter">
           <button class="counter-up" @click="addToCart(product)">+</button>
           <input type="text" v-model="product.quantity" readonly>
-          <div class="counter-down">-</div>
+          <button class="counter-down" @click="removeFromCart(product)">-</button>
         </div>
       </div>
       <div class="card-content">
@@ -16,7 +16,7 @@
         <div class="card-price">
           {{ product.price }}
         </div>
-        <button class="card-remove">
+        <button class="card-remove" @click="removeProduct(product)">
           REMOVE
         </button>
       </div>
@@ -38,7 +38,7 @@ export default {
     ...mapState(['cart']),
   },
   methods: {
-    ...mapMutations(['addToCart']),
+    ...mapMutations(['addToCart', 'removeFromCart', 'removeProduct']),
   },
 };
 </script>
