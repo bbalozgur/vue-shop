@@ -41,6 +41,9 @@ export default new Vuex.Store({
       delete tempCart[product.id];
       state.cart = tempCart;
     },
+    emptyCart(state) {
+      state.cart = {};
+    },
   },
   actions: {
   },

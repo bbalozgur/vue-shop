@@ -1,11 +1,8 @@
 <template>
-  <div class="columns">
-    <ProductView
-      class="column is-4"
-      v-for="product in products"
-      :key="product.id"
-      :product="product"
-    />
+  <div class="row px-5">
+    <div class="col-md-3 mb-2" v-for="product in products" :key="product.id">
+      <ProductView :product="product" />
+    </div>
   </div>
 </template>
 

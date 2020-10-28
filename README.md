@@ -10,6 +10,11 @@ npm install
 npm run serve
 ```
 
+### Compiles and Eslint
+```
+npm run eslint
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
