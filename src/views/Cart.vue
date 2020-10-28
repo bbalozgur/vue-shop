@@ -30,19 +30,19 @@
         </a>
       </div>
     </div>
-    <CardOrder />
+    <CartOrder />
   </div>
 </template>
 <script>
 import { mapState, mapMutations } from 'vuex';
-import CardOrder from '@/components/CardOrder.vue';
+import CartOrder from '@/components/CartOrder.vue';
 import priceFormat from '@/mixins/priceFormat';
 
 export default {
   name: 'Cart',
   mixins: [priceFormat],
   components: {
-    CardOrder,
+    CartOrder,
   },
   computed: {
     ...mapState(['cart']),
